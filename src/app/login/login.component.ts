@@ -13,6 +13,8 @@ export class LoginComponent implements OnInit {
   user : any = {};
   loginForm? : FormGroup;
   connectedUser:any
+  adminIsConnected: boolean;
+  sessionRole: string | null;
   constructor(private formBuilder : FormBuilder, private userService : UserService, private router : Router) { }
 
  
@@ -21,6 +23,8 @@ export class LoginComponent implements OnInit {
       email :  [''],
       password :  [''],
     })
+
+    
   }
 
   login(){
@@ -34,7 +38,7 @@ export class LoginComponent implements OnInit {
         if (this.connectedUser) {
           // stockage de l'utilisateur connecté dans LocalStorage
           localStorage.setItem("connectedUser",JSON.stringify(data.connectedUser))
-          this.router.navigate(["/membre"]);
+          this.router.navigate(["/acceuil"]);
 
           //localStorage.setItem("adminConnectedId", data.connectedUser._id)
           // Redirection
@@ -56,5 +60,4 @@ export class LoginComponent implements OnInit {
   }
 
 
-  save() {}
 }

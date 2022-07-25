@@ -20,7 +20,7 @@ export class ProfilComponent implements OnInit {
 
     this.sessionRole = localStorage.getItem("connectedUser")
     this.adminIsConnected = JSON.parse(this.sessionRole)._id ;
-    alert(this.adminIsConnected)
+    //alert(this.adminIsConnected)
 
 
     //setTimeout(function(){
